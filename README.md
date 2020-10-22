@@ -22,3 +22,8 @@ $ firebase deploy --only hosting
 ```
 
 It seems that Firebase Hosting is rather for the whole project than an app. In fact, it even works without an app created in the firebase project.
+
+## Authentication
+Using Email and password as authentication method is simple, just have a look into the code.
+
+Note that Firebase SDK is using `IndexedDB` to store the login data, not `Local Storage`. After the page has been loaded, SDK needs around 1 second to recover the login status.
