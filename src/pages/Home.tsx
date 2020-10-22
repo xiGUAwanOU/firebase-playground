@@ -1,7 +1,7 @@
 import React from "react";
 
 export class Home extends React.Component {
-  render() {
+  public render() {
     return (
       <div className="home">
         <h1>Firebase Playground</h1>
