@@ -20,3 +20,5 @@ After initialization has been done, simply type the command below to deploy the 
 ```console
 $ firebase deploy --only hosting
 ```
+
+It seems that Firebase Hosting is rather for the whole project than an app. In fact, it even works without an app created in the firebase project.
