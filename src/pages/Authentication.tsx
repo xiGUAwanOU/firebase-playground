@@ -1,5 +1,5 @@
-import firebase from "firebase";
-import React, { ChangeEvent } from "react";
+import firebase from 'firebase';
+import React, { ChangeEvent } from 'react';
 
 interface State {
   email: string;
@@ -13,7 +13,11 @@ export class Authentication extends React.Component {
   public constructor(props: any) {
     super(props);
 
-    this.state = { email: '', password: '', loggedIn: false };
+    this.state = {
+      email: '',
+      password: '',
+      loggedIn: firebase.auth().currentUser !== null
+    };
 
     this.onChange_Email = this.onChange_Email.bind(this);
     this.onChange_Password = this.onChange_Password.bind(this);
@@ -31,7 +35,7 @@ export class Authentication extends React.Component {
   public render() {
     return (
       <div className="authentication">
-        <h1>Firebase: Authentication</h1>
+        <h1>Authentication</h1>
         <p><input
           type="text"
           placeholder="Email"
@@ -72,7 +76,7 @@ export class Authentication extends React.Component {
 
   public async onClick_Login() {
     await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-    await firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+    await firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password);
     this.setState({ email: '', password: '', loggedIn: firebase.auth().currentUser !== null });
     console.log('Logged in successfully!');
   }
