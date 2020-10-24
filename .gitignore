@@ -71,3 +71,6 @@ node_modules/
 
 # Webapp artifact
 webapp/build
+
+# Functions artifact
+functions/lib

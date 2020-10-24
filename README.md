@@ -44,3 +44,29 @@ service cloud.firestore {
 ```
 
 To work with the database is actually very easy, just have a look into the code. But the example code doesn't cover any details like sorting, filtering, pagination or so.
+
+## Functions
+To initialize the project to implement Functions, simply run following command:
+
+```console
+$ firebase init functions
+```
+
+This will create a `functions` folder in the root folder of the Firebase project.
+
+To use Functions without cost or without payment method, we should change the project to use Node 8, which is a deprecated version:
+
+```javascript
+// In the package.json file:
+"engines": {
+  "node": "8"
+},
+```
+
+All the objects exported from the `src/index.ts` file will be treated as a Function entry.
+
+After the function is implemented, use following command to deploy the function:
+
+```console
+$ firebase deploy --only functions
+```
