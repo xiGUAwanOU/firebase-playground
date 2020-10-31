@@ -70,3 +70,14 @@ After the function is implemented, use following command to deploy the function:
 ```console
 $ firebase deploy --only functions
 ```
+
+## Cloud Messaging
+To receive the push notifications in a web app, we have to understand what is foreground and background push notification, and understand what is Service Worker.
+
+The foreground notification will be handled while the browser window or tab of the Web App is in the foreground. It will be handled by `firebase.messaging().onMessage()`. In the contrast, background notification will be handled while the browser window or tab of the Web App is in the background. It will be handled by `firebase.messaging().onBackgroundMessage()` by the Service Worker.
+
+Service Worker is a intermediate layer lying between the web app and the server, which is usually used for the offline availability. But in this example, we are also using it to deal with the push notification. Once the web app is opened somewhere, but it is in the background (browser window minimized for example), the Service Worker will still available for handling the push notification.
+
+In most of the cases, the push notification is generated from the backend server, and being sent to the push notification services, and the push notification services will then push the message to the browser. 
+
+Usually, each browser is implementing the push notification mechanism in a different way. For example, Chrome will register the web app to the FCM service, Firefox will register the web app to the Mozilla autopush service. Theoretically, if using FCM, one cannot send a push notification to Firefox, because Firefox web app is registered in Mozilla autopush, while the push notification is sent to FCM. However the FCM is supporting Firefox now. The way that it is handled is that the push notification will firstly being sent to the FCM, and if the browser is Chrome, the push notification will be pushed directly to Chrome. But if it is Firefox, then the push notification will be firstly forwarded to Mozilla autopush, and then pushed to Firefox.

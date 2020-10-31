@@ -22,7 +22,7 @@ export class Functions extends React.Component {
     return (
       <div className="functions">
         <button onClick={this.onClick_SendRequest}>Send request</button>
-        <pre><code>{JSON.stringify(this.state.message, null, 2)}</code></pre>
+        <pre><code>{this.state.message}</code></pre>
       </div>
     );
   }
@@ -34,6 +34,6 @@ export class Functions extends React.Component {
     );
     console.log('HTTP request sent successfully.');
 
-    this.setState({ message: response.data });
+    this.setState({ message: JSON.stringify(response.data, null, 2) });
   }
 }

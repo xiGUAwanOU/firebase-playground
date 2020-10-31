@@ -5,16 +5,20 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import firebase from 'firebase';
 
-firebase.initializeApp({
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
-});
+async function initialize() {
+  firebase.initializeApp({
+    apiKey: 'AIzaSyBWqZb6FxVspZ0oN_MHrBiWo-xZSAtomRc',
+    authDomain: 'playground-project--watermelon.firebaseapp.com',
+    databaseURL: 'https://playground-project--watermelon.firebaseio.com',
+    projectId: 'playground-project--watermelon',
+    storageBucket: 'playground-project--watermelon.appspot.com',
+    messagingSenderId: '1064083674989',
+    appId: '1:1064083674989:web:6a5a6bd0aa6cd2e6bcac64',
+    measurementId: 'G-XS8ZZ9HRN0'
+  });
+}
+
+initialize();
 
 ReactDOM.render(
   <React.StrictMode>

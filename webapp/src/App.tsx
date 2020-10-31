@@ -5,6 +5,7 @@ import { Home } from './pages/Home';
 import { Authentication } from './pages/Authentication';
 import { CloudFirestore } from './pages/CloudFirestore';
 import { Functions } from './pages/Functions';
+import { CloudMessaging } from './pages/CloudMessaging';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Link to="/cloud-firestore">Cloud Firestore</Link>
         <span> | </span>
         <Link to="/functions">Functions</Link>
+        <span> | </span>
+        <Link to="/cloud-messaging">Cloud Messaging</Link>
 
         <hr />
 
@@ -25,6 +28,7 @@ function App() {
           <Route path="/authentication"><Authentication /></Route>
           <Route path="/cloud-firestore"><CloudFirestore /></Route>
           <Route path="/functions"><Functions /></Route>
+          <Route path="/cloud-messaging"><CloudMessaging /></Route>
         </Switch>
       </Router>
     </div>
